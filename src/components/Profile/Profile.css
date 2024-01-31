@@ -1,0 +1,113 @@
+.profile {
+    display: flex;
+    justify-content: center; /* выравниваем по горизонтали */
+    align-items: center; /* выравниваем по вертикали */
+    margin: 0 auto;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 74px;
+}
+
+.profile__greeting {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    max-width: 204px;
+    margin-block: 0;
+    margin-inline: 0;
+    padding-bottom: 123px;
+}
+
+.profile__form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border: 0;
+    padding: 0 0 0;
+    align-items: center;
+}
+
+.profile__form:last-of-type {
+  padding-bottom: 0;
+}
+
+.profile__form-flex {
+    display: flex;
+    border-bottom: 1px solid #424242;
+    min-width: 410px;
+    justify-content: space-between;
+    margin-bottom: 17px;
+}
+.profile__text {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: normal; 
+    color: #FFFFFF;
+    margin: 0;
+    min-width: 44px;
+}
+
+.profile__change {
+    padding-top: 190px;
+    transition: opacity .2s;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 0 0 16px 0;
+}
+  
+.profile__input {
+    border: 0;
+    box-sizing: border-box;
+    font-size: 11px;
+    line-height: normal;
+    color: #FFFFFF;
+    font-weight: 500;
+    margin: 0;
+    padding:0 0 16px;
+    background-color: rgba(0, 0, 0); /* фон */
+    background-color: transparent;
+    text-align: right;
+    width: 100%;
+}
+
+.profile__exit {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: normal; 
+    color: #EE3465;
+    margin: 0;
+}
+
+        
+@media screen and (max-width: 1279px) { 
+    .profile {
+        padding-top: 230px;
+    }
+
+    .profile__greeting {
+        padding-bottom: 96px;
+    }
+
+    .profile__change {
+        padding-top: 180px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .profile {
+        padding-top: 68px;
+    }
+
+    .profile__greeting {
+        padding-bottom: 80px;
+    }
+
+    .profile__form-flex {
+        min-width: 260px;
+    }
+
+    .profile__change {
+        padding-top: 340px;
+    }
+}

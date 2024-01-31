@@ -1,0 +1,322 @@
+.header {
+    background-color: #073042;
+}
+
+.header__content {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 30px;
+}
+
+.header__logo {
+    background-image: url('../../images/logo.svg');
+    background-size: cover;
+    width: 38px;
+    height: 38px;
+}
+
+.header__logo:hover {
+    opacity: .7;
+    transition: .2s ease;
+}
+
+.header__navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header__link {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.header__link:hover {
+    opacity: .7;
+    transition: .2s ease;
+}
+
+.header__signup {
+    color: #FFFFFF;
+}
+
+.header__signin{
+    background-color: #3DDC84;
+    min-width: 76px;
+    height: 32px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.header__signin-span {
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.header-logged {
+    background-color: #202020;
+}
+
+.header__content-logged {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    padding: 18px 30px;
+}
+
+.header__navigation-logged {
+    margin-left: 45px;
+    display: flex;
+    align-items: center;
+    min-width: 1057px;
+    justify-content: space-between;
+}
+
+.header__navigation-movies {
+    display: flex;
+    gap: 16px;
+}
+
+.header__link-logged {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+    color: #FFFFFF;
+    align-self: flex-end;
+}
+
+.header__link-logged_active{
+    font-weight: 500; 
+}
+
+.header__link-user {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.header__navigation-user {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.header__navigation-user:hover {
+    opacity: .7;
+    transition: .2s ease;
+}
+
+.header__profile-icon {
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    background: #0F4157 url('../../images/profile_icon.svg') no-repeat center;
+    background-size: 10px 8.5px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+.burger-menu {
+    display: none;
+}
+
+.burger-menu__open {
+    display: none;
+}
+
+
+@media screen and (max-width: 1279px) { 
+    .header__content {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .header__content-logged {
+        justify-content: space-between
+    }
+    
+    .header__navigation-logged {
+        display: none;
+    }
+
+    .burger-menu__open {
+        display: block;
+        background: url('../../images/burger-menu-big.svg') no-repeat center;
+        width:  43px;
+        height: 43px;
+        padding: 0;
+        cursor: pointer;
+        border: 0;
+    }
+
+    .burger-menu__open:hover {
+        opacity: 0.7;
+    }
+
+    .burger-menu_disabled {
+        display: none;
+    }
+
+    .burger-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgba(32, 32, 32);
+        min-width: 520px;
+        height: 100%;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity .6s linear;
+        transition-delay: 0.5s, 0s;
+        z-index: 30;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 22.44px;
+    }
+
+    .burger-menu::before {
+        content: '';
+        left: 0;
+        top: 0;
+        width: calc(100vw - 520px);
+        height: 100%;
+        background-color: rgba(0, 0, 0, .3);
+        position: fixed;
+    }
+
+    .burger-menu_opened {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transition: visibility 0s, opacity .6s linear;
+    }
+
+    .burger-menu__close {
+        background: url('../../images/delete.svg') no-repeat center;
+        width:  22px;
+        height: 22px;
+        cursor: pointer;
+        border: 0;
+        margin-right: 22.44px;
+        align-self: flex-end;
+    }
+
+    .burger-menu__container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 105.44px;
+        gap: 28px;
+    }
+
+    .burger-menu__close:hover {
+        opacity: 0.7;
+    }
+
+    .burger-menu__link-user {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        padding-top: 621px;
+        justify-content: center;
+    }
+
+    .header__burger-menu__link_active {
+        border-bottom: 1px solid #FFFFFF;
+    }
+
+    .header__burger-menu__link {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        text-decoration: none;
+        color: #FFFFFF;
+        align-self: center;
+    }
+}
+
+
+@media screen and (max-width: 767px) { 
+    .header__content {
+        max-width: 708px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .header__navigation {
+        gap: 15px;
+    }
+
+    .burger-menu {
+        min-width: 320px;
+    }
+
+    .burger-menu::before {
+        width: calc(100vw - 320px);
+    }
+
+
+    .burger-menu__link-user {
+        padding-top: 444px;
+        justify-content: center;
+    }
+
+    .burger-menu__container {
+        padding-top: 99.44px;
+        gap: 24px;
+    }
+
+    .burger-menu__open {
+        display: block;
+        background: url('../../images/burger-menu-mini.svg') no-repeat center;
+        width:  40px;
+        height: 43px;
+        padding: 0;
+        cursor: pointer;
+        border: 0;
+    }
+
+    .header__content-logged {
+        padding: 18px 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header__content {
+        max-width: 708px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .header__link {
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .header__signin{
+        background-color: #3DDC84;
+        min-width: 54px;
+        height: 26px;
+    }
+
+    .header__signin-span {
+        font-size: 10px;
+    }
+}

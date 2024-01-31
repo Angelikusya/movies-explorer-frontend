@@ -1,0 +1,12 @@
+.app {
+    background-color: #202020;
+    box-sizing: border-box;
+    padding-bottom: 25px;
+    color: #FFFFFF;
+    margin: 0 auto;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    min-height: 100vh;
+}
