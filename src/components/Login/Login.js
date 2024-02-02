@@ -39,41 +39,44 @@ function Login({onLogin}) {
     }
 
     return (
-        <div className='login'>
-            <div className='login__header'>
-                <Link className='login__logo' to='/'></Link>
-                <h2 className='login__greeting'>Рады видеть!</h2>
-            </div>
-            <form className='login__form' onSubmit={handleSubmit}>
-                <p className='login__text'>E-mail</p>
-                <input
-                    id="email-input"
-                    type="email"
-                    className={`login__input ${emailError ? 'login__input_error' : ''}`}
-                    placeholder="Введите Ваш Email"
-                    minLength="2"
-                    maxLength="40"
-                    required
-                    value={email}
-                    onChange={handleEmail}
-                />
-                {emailError && <div className='login__form-error_active'>Что-то пошло не так...</div>}
-                <p className='login__text'>Пароль</p>
-                <input
-                    id="password-input"
-                    type="password"
-                    className={`login__input ${passwordError ? 'login__input_error' : ''}`}
-                    placeholder="Введите Ваш пароль"
-                    minLength="6"
-                    required
-                    value={password}
-                    onChange={handlePassword}
-                />
-                {passwordError && <div className='login__form-error_active'>Что-то пошло не так...</div>}
-                <button className="login__button">Войти</button>
-                <Link to="/signup" className="login__question">Еще не зарегистрированы? <span className="login__link">Регистрация</span></Link>
-            </form>
-        </div>
+        <main>
+            <section className='login'>
+                <div className='login__header'>
+                    <Link className='login__logo' to='/'></Link>
+                    <h1 className='login__greeting'>Рады видеть!</h1>
+                </div>
+                <form className='login__form' onSubmit={handleSubmit}>
+                    <p className='login__text'>E-mail</p>
+                    <input
+                        id="email-input"
+                        type="email"
+                        className={`login__input ${emailError ? 'login__input_error' : ''}`}
+                        placeholder="Введите Ваш Email"
+                        minLength="2"
+                        maxLength="40"
+                        required
+                        value={email}
+                        onChange={handleEmail}
+                    />
+                    {emailError && <div className='login__form-error_active'>Что-то пошло не так...</div>}
+                    <p className='login__text'>Пароль</p>
+                    <input
+                        id="password-input"
+                        type="password"
+                        className={`login__input ${passwordError ? 'login__input_error' : ''}`}
+                        placeholder="Введите Ваш пароль"
+                        minLength="6"
+                        maxLength="40"
+                        required
+                        value={password}
+                        onChange={handlePassword}
+                    />
+                    {passwordError && <div className='login__form-error_active'>Что-то пошло не так...</div>}
+                    <button className="login__button" type='submit'>Войти</button>
+                    <Link to="/signup" className="login__question">Еще не зарегистрированы? <span className="login__link">Регистрация</span></Link>
+                </form>
+            </section>
+        </main>
     )
 }
 

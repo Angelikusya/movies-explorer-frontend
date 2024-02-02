@@ -16,7 +16,7 @@ function SavedMovies() {
     }, []);
 
     return (
-        <section>
+        <main>
             <SearchForm/>
             {isLoading ? ( <Preloader /> ) : (
                 <section className='movies-card-list'>
@@ -33,7 +33,7 @@ function SavedMovies() {
                     </div>
                 </section>
                 )}
-        </section>
+        </main>
     )
 }
 

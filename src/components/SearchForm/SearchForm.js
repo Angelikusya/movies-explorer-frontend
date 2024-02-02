@@ -14,8 +14,12 @@ function SearchForm (){
             <div className='search-form__bar'>
               <img className='search-form__search' alt='Поиск' src={search} />
               <div className='search-form__container'>
-                  <input className='search-form__input' type='text' placeholder='Фильм'>
-                  </input>
+                  <input 
+                    className='search-form__input' 
+                    type='text' 
+                    placeholder='Фильм'
+                    required
+                  />
                   <button className='search-form__button' type='submit'>Найти
                   </button>
             </div>
@@ -27,7 +31,7 @@ function SearchForm (){
                     type='checkbox' 
                     id="switch" 
                   />
-                  <label className='search-form__checkbox-button' htmlFor="switch"></label>
+                  <label className='search-form__checkbox-button' htmlFor="switch" type='button'></label>
                   <p className='search-form__checkbox-text'>Короткометражки</p>
               </div>
             </div>

@@ -38,6 +38,11 @@
     justify-content: space-between;
     margin-bottom: 17px;
 }
+
+.profile__form-flex:last-of-type {
+    border-bottom: none;
+}
+
 .profile__text {
     font-size: 11px;
     font-weight: 500;
@@ -48,13 +53,26 @@
 }
 
 .profile__change {
-    padding-top: 190px;
-    transition: opacity .2s;
+    margin-top: 187px;
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
-    margin: 0 0 16px 0;
+    color: #FFFFFF;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
 }
+
+.profile__change:hover {
+    opacity: 0.7;
+    transition: .2s ease;
+}
+
+.profile__change:disabled {
+    cursor: auto;
+    opacity: .1;
+    transition: .2s ease;
+  }
   
 .profile__input {
     border: 0;
@@ -71,18 +89,29 @@
     width: 100%;
 }
 
+.profile__input:focus {
+    outline: none;
+}
+
 .profile__exit {
+    padding-top: 16px;
     font-size: 13px;
     font-weight: 500;
     line-height: normal; 
     color: #EE3465;
     margin: 0;
+    text-decoration: none;
+}
+
+.profile__exit:hover {
+    opacity: 70%;
+    transition: .3s ease;
 }
 
         
 @media screen and (max-width: 1279px) { 
     .profile {
-        padding-top: 230px;
+        padding-top: 231px;
     }
 
     .profile__greeting {
@@ -90,13 +119,13 @@
     }
 
     .profile__change {
-        padding-top: 180px;
+        margin-top: 180px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .profile {
-        padding-top: 68px;
+        padding-top: 66px;
     }
 
     .profile__greeting {
@@ -108,6 +137,6 @@
     }
 
     .profile__change {
-        padding-top: 340px;
+        margin-top: 340px;
     }
 }

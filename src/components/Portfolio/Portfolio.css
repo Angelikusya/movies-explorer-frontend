@@ -11,10 +11,20 @@
     padding-bottom: 30px;
 }
 
+.portfolio__list {
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio__links {
+    list-style-type: none;
+}
+
 .portfolio__container-links {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #424242;
+    text-decoration: none;
 }
 
 .portfolio__container-link{
@@ -62,7 +72,7 @@
 
 @media screen and (max-width: 1279px) {
     .portfolio__container{
-        padding: 91px 50px 90px;
+        padding: 71px 50px 90px;
     }
     
     .portfolio__container-link{

@@ -31,7 +31,7 @@
 
 @media screen and (max-width: 1279px) {
   .promo {
-      padding: 300px 44px 55px;
+      padding: 297px 44px 55px;
   }
 
   .promo__title {
@@ -50,7 +50,7 @@
 
 @media screen and (max-width: 767px) {
   .promo {
-    padding: 184px 0 25px;
+    padding: 179px 0 25px;
   }
 
   .promo__title {

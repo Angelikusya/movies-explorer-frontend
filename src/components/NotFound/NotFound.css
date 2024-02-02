@@ -1,14 +1,14 @@
 .not-found {
     margin: 0 auto;
     text-align: center;
-    padding-top: 110px;
+    padding-top: 246px;
 }
 
 .not-found__error{
     font-size: 140px;
     font-weight: 400;
     line-height: 169px;
-    margin-bottom: 7px;
+    margin: 0 0 7px;
 }
 
 .not-found__text {
@@ -36,7 +36,7 @@
 
 @media screen and (max-width: 1279px) {
     .not-found {
-        padding-top: 269px;
+        padding-top: 408px;
     }
 
     .not-found__text {
@@ -51,7 +51,7 @@
 
 @media screen and (max-width: 767px) {
     .not-found {
-        padding-top: 250px;
+        padding-top: 329px;
     }
 
     .not-found__error{

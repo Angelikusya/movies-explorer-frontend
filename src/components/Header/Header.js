@@ -20,10 +20,6 @@ function Header({email, onExit}) {
   const handleLinkClick = () => {
     handleBurgerMenuClose();
   }
-
-
-
-
     return (
       <>
       {/* будет прописана логика, если не залогинен пользователь */}
@@ -42,9 +38,11 @@ function Header({email, onExit}) {
       <header className={pathname === '/' ? 'header' : 'header-logged'}>
         <div className='header__content-logged'>
           <Link className='header__logo' to='/'></Link>
-          <button className='burger-menu__open' onClick={handleBurgerMenuOpen}></button>
+          <button className='burger-menu__open' onClick={handleBurgerMenuOpen} type='button'></button>
+
           <nav className='header__navigation-logged'>
             <div className='header__navigation-movies'>
+              <Link className='header__logo__nav' to='/'></Link>
               <Link className={pathname === '/movies' ? 'header__link-logged  header__link-logged_active' : 'header__link-logged'} to='/movies'>Фильмы</Link>
               <Link className={pathname === '/saved-movies' ? 'header__link-logged  header__link-logged_active' : 'header__link-logged' } to='/saved-movies'>Сохранённые фильмы</Link>
             </div>
@@ -54,11 +52,11 @@ function Header({email, onExit}) {
               </Link>
           </nav>
           <nav className={`burger-menu ${isBurgerMenuOpened ? 'burger-menu_opened' : 'burger-menu_disabled'}`}>
-          <button className='burger-menu__close' onClick={handleBurgerMenuClose}></button>
+          <button className='burger-menu__close' onClick={handleBurgerMenuClose} type='button'></button>
             <div className='burger-menu__container'>
-                <Link className={pathname === '/' ? 'header__burger-menu__link  header__burger-menu__link_active' : 'header__burger-menu__link'} onClick={handleLinkClick} to='/'>Главная</Link>
-                <Link className={pathname === '/movies' ? 'header__burger-menu__link  header__burger-menu__link_active' : 'header__burger-menu__link'} onClick={handleLinkClick} to='/movies'>Фильмы</Link>
-                <Link className={pathname === '/saved-movies' ? 'header__burger-menu__link  header__burger-menu__link_active' : 'header__burger-menu__link'} onClick={handleLinkClick} to='/saved-movies'>Сохранённые фильмы</Link>
+              <Link className={pathname === '/' ? 'header__burger-menu__link  header__burger-menu__link_active' : 'header__burger-menu__link'} onClick={handleLinkClick} to='/'>Главная</Link>
+              <Link className={pathname === '/movies' ? 'header__burger-menu__link  header__burger-menu__link_active' : 'header__burger-menu__link'} onClick={handleLinkClick} to='/movies'>Фильмы</Link>
+              <Link className={pathname === '/saved-movies' ? 'header__burger-menu__link  header__burger-menu__link_active' : 'header__burger-menu__link'} onClick={handleLinkClick} to='/saved-movies'>Сохранённые фильмы</Link>
               </div>
                 <Link className='burger-menu__link-user' to='/profile' onClick={handleLinkClick}>
                   <p className='header__navigation-user'>Аккаунт</p>

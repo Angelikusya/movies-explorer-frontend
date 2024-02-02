@@ -99,6 +99,9 @@
         font-size: 12px;
         line-height: 18px;
     }
+    .about-project__container{
+        justify-content: space-between;
+    }
 
     .about-project__digram{
         padding-top: 93px;

@@ -16,24 +16,24 @@ function MoviesCardList () {
   }, []);
 
   return (
-    <section>
-      {isLoading ? ( <Preloader /> ) : (
-        <section className='movies-card-list'>
-          <div className='movies-card-list__container'>
-            {initialCards.map((card, index) => (
-              <MoviesCard
-                key={index}
-                name={card.name}
-                image={card.image}
-                duration={card.duration}
-                link={card.link}
-              />
-            ))}
-          </div>
-          <button className='movies-card-list__button'>Еще</button>
-        </section>
-      )}
-    </section>
+    <main>
+        {isLoading ? ( <Preloader /> ) : (
+          <section className='movies-card-list'>
+            <ul className='movies-card-list__container'>
+              {initialCards.map((card, index) => (
+                <MoviesCard
+                  key={index}
+                  name={card.name}
+                  image={card.image}
+                  duration={card.duration}
+                  link={card.link}
+                />
+              ))}
+            </ul>
+            <button className='movies-card-list__button' type='button'>Еще</button>
+          </section>
+        )}
+    </main>
   )
 }
   
