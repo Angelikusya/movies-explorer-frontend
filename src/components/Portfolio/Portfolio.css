@@ -18,12 +18,16 @@
 
 .portfolio__links {
     list-style-type: none;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.portfolio__links:last-of-type {
+    border-bottom: none;
 }
 
 .portfolio__container-links {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #424242;
     text-decoration: none;
 }
 

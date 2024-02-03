@@ -71,7 +71,8 @@
 }
 
 .register__input:focus {
-    outline: none;
+    outline: 1px dashed rgba(145, 131, 191, 0.651);
+    border-radius: 5px;
 }
 
 .register__input_error  {
@@ -139,7 +140,6 @@
     margin: 0;
     padding-top: 6px;
     color: #EE3465;
-    font-family: Inter;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -233,7 +233,6 @@
         margin: 0;
         padding-top: 6px;
         color: #EE3465;
-        font-family: Inter;
         font-size: 10px;
         font-style: normal;
         font-weight: 400;

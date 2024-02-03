@@ -138,13 +138,15 @@
 }
 
 .search-form__input:focus {
-    outline: none;
+    outline: 1px dashed rgba(145, 131, 191, 0.651);
+    border-radius: 5px;
 }
-  
+
 .search-form__input::placeholder {
     opacity: 1;
     transition: .3s ease;
 }
+
   
 .search-form__input:focus::placeholder {
     opacity: 0;
