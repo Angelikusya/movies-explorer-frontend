@@ -1,0 +1,106 @@
+.movies-card {
+    list-style-type: none;
+}
+
+.movies-card__image {
+    width: 270px;
+    height: 151px;
+    margin-bottom: 7px;
+    object-fit: cover;
+}
+  
+.movies-card__info {
+    border-bottom: 1px solid #424242;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    height: 46px;
+    align-items: flex-start;
+}
+  
+.movies-card__name {
+    margin: 0;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    max-width: 226px;
+    padding-top: 4px;
+}
+
+.movies-card__like {
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    background: #313131 url('../../images/like_disabled.svg') no-repeat center;
+    background-size: 10px 8.5px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+.movies-card__like-active {
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    background: #313131 url('../../images/like_active.svg') no-repeat center;
+    background-size: 10px 8.5px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+.movies-card__delete {
+    background: #313131 url('../../images/trash.svg') no-repeat center;
+    padding: 0;
+    border: 0;
+    height: 100px;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.movies-card__dutarion {
+    color: #8B8B8B;
+    margin: 0;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+    padding-top: 6px;
+}
+
+.movies-card:hover {
+    .movies-card__delete {
+      opacity: 1;
+    }
+}
+  
+.movies-card__like:hover {
+    opacity: 70%;
+    transition: .2s ease;
+}
+
+
+@media screen and (max-width: 1279px) {
+    .movies-card__image {
+        width: 339px;
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .movies-card__image {
+        width: 300px;
+        height: 168px;
+    }
+
+    .movies-card__name {
+        font-size: 12px;
+        line-height: 15px;
+        max-width: 226px;
+        padding-top: 3px;
+    }
+}
