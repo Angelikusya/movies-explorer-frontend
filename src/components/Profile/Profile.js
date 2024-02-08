@@ -2,14 +2,14 @@ import React from 'react'
 import './Profile.css';
 import { Link } from 'react-router-dom';
 
-function Profile() {
+function Profile({onExit}) {
 
     return (
         <main>
             <section className='profile'>
                 <h1 className='profile__greeting'>Привет, Виталий!</h1>
 
-                <form className='profile__form' novalidate>
+                <form className='profile__form' noValidate>
                     <div className='profile__form-flex'>
                         <p className='profile__text'>Имя</p>
                         <input
@@ -35,7 +35,7 @@ function Profile() {
                         />
                     </div>
                     <button className="profile__change" type='submit'>Редактировать</button>
-                    <Link className="profile__exit" to='/'>Выйти из аккаунта</Link>
+                    <Link className="profile__exit" to='/' onClick={onExit}>Выйти из аккаунта</Link>
                 </form>
             </section>
         </main>

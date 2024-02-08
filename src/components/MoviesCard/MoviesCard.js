@@ -13,12 +13,12 @@ function MoviesCard(props) {
     setLiked(!liked);
   };
 
-  // // конвертируем время
-  // const conversionDuration = (duration) => {
-  //   const hours = Math.floor(duration / 60);
-  //   const minutes = duration % 60;
-  //   return `${(hours)}ч ${(minutes)}м`;
-  // };
+  // конвертируем время
+  const convertingDuration = (duration) => {
+    const hours = Math.floor(duration / 60);
+    const minutes = duration % 60;
+    return `${(hours)}ч ${(minutes)}м`;
+  };
 
   return (
       <li className='movies-card'>
@@ -32,7 +32,7 @@ function MoviesCard(props) {
             {(pathname === '/movies' && liked) && <button className='movies-card__like-active' onClick={handleLikeClick} type='button'/>}
             {(pathname === '/saved-movies') && <button className='movies-card__delete' type='button'/>}
           </div>
-          <p className='movies-card__dutarion'>{props.duration}</p>
+          <p className='movies-card__dutarion'>{convertingDuration(props.duration)}</p>
         </div>
       </li>
   )

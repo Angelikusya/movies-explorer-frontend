@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './Register.css';
 
 function Register({onRegister}) {
+
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword]= useState('');
@@ -30,21 +32,15 @@ function Register({onRegister}) {
 
     function handlePassword(e) {
         setPassword(e.target.value);
-        if (e.target.value.length < 6) {
-            setPasswordError(true);
-        } else {
-            setPasswordError(false);
-        }
     };
 
     function handleSubmit(e) {
         e.preventDefault();
-
-        // Валидация формы
-        if (nameError || emailError || passwordError) {
+        
+        if (nameError || emailError || passwordError) {  // Валидация формы
             return;
         } else {
-            onRegister({ email, password });
+            onRegister({ name, email, password });
         }
     }
 
@@ -55,7 +51,7 @@ function Register({onRegister}) {
                     <Link className='register__logo' to='/'></Link>
                     <h1 className='register__greeting'>Добро пожаловать!</h1>
                 </div>
-                <form className='register__form' onSubmit={handleSubmit} novalidate>
+                <form className='register__form' onSubmit={handleSubmit} noValidate>
                     <p className='register__text'>Имя</p>
                     <input
                         id="name-input"

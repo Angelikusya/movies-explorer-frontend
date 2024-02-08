@@ -45,7 +45,7 @@ function Login({onLogin}) {
                     <Link className='login__logo' to='/'></Link>
                     <h1 className='login__greeting'>Рады видеть!</h1>
                 </div>
-                <form className='login__form' onSubmit={handleSubmit}>
+                <form className='login__form' onSubmit={handleSubmit} noValidate>
                     <p className='login__text'>E-mail</p>
                     <input
                         id="email-input"
