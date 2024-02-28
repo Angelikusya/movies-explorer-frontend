@@ -11,4 +11,4 @@ IP-адрес 51.250.77.109
 
 Backend https://api.movies-angelikusya.nomoredomainsmonster.ru
 
-Frontend 
+Frontend https://movies-angelikusya.nomoredomainswork.ru
