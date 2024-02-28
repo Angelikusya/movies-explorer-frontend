@@ -12,3 +12,5 @@ IP-адрес 51.250.77.109
 Backend https://api.movies-angelikusya.nomoredomainsmonster.ru
 
 Frontend https://movies-angelikusya.nomoredomainswork.ru
+
+Ссылка на pull requiest : https://github.com/Angelikusya/movies-explorer-frontend/pull/2 
