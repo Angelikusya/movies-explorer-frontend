@@ -1,48 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import './Register.css';
+import { useForm } from 'react-hook-form';
+// import Preloader from '../Preloader/Preloader';
 
-function Register({onRegister}) {
+
+function Register ({ onRegister, errorMessage, isLoading }) {
+  
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { 
+    register, 
+    formState: { errors, isValid }, 
+    watch 
+  } = useForm({ mode: 'onChange' });
 
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword]= useState('');
-    const [nameError, setNameError] = useState(false);
-    const [emailError, setEmailError] = useState(false);
-    const [passwordError, setPasswordError] = useState(false);
+  useEffect(() => {
+    const subscription = watch(({name, email, password}) => {
+      setName(name);
+      setEmail(email);
+      setPassword(password);
+      return () => {
+        subscription.unsubscribe();
+      }
+    })
+  }, [watch]);
 
-    function handleName(e) {
-        setName(e.target.value);
-        if (e.target.value.length < 2 || e.target.value.length > 40) {
-            setNameError(true);
-        } else {
-            setNameError(false);
-        }
-    };
-
-    function handleEmail(e) {
-        setEmail(e.target.value);
-        if (!/^\S+@\S+\.\S+$/.test(e.target.value)) {
-            setEmailError(true);
-        } else {
-            setEmailError(false);
-        }
-    };
-
-    function handlePassword(e) {
-        setPassword(e.target.value);
-    };
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        
-        if (nameError || emailError || passwordError) {  // Валидация формы
-            return;
-        } else {
-            onRegister({ name, email, password });
-        }
-    }
+  const handleSubmitRegister = (e) => {
+    e.preventDefault();
+    onRegister(name, email, password)
+  };
 
     return (
         <main>
@@ -51,47 +41,80 @@ function Register({onRegister}) {
                     <Link className='register__logo' to='/'></Link>
                     <h1 className='register__greeting'>Добро пожаловать!</h1>
                 </div>
-                <form className='register__form' onSubmit={handleSubmit} noValidate>
+                <form className='register__form' onSubmit={handleSubmitRegister} noValidate>
                     <p className='register__text'>Имя</p>
                     <input
                         id="name-input"
                         type="text"
-                        className={`register__input ${nameError ? 'register__input_error' : ''}`}
-                        placeholder="Введите Ваше имя"
-                        minLength="2"
-                        maxLength="40"
-                        required
                         value={name}
-                        onChange={handleName}
-                    />
-                    {nameError && <div className='register__form-error_active'>Что-то пошло не так...</div>}
+                        className='register__input'
+                        placeholder="Введите Ваше имя"
+                        disabled={isLoading}
+                        {...register('name', {
+                          required: 'Имя пользователя должно быть заполнено',
+                          minLength: {
+                            value: 2,
+                            message: 'Минимальное количество символов: 2'
+                          },
+                          maxLength: {
+                            value: 40,
+                            message: 'Максимальное количество символов: 40'
+                          }
+                        })}  
+                      />
+                    <div className={`register__form-error ${errors?.name ? 'register__form-error_active' : ''}`}>{errors?.name?.message || 'Ошибка'}</div>
                     <p className='register__text'>E-mail</p>
                     <input
                         id="email-input"
                         type="email"
-                        className={`register__input ${emailError ? 'register__input_error' : ''}`}
-                        placeholder="Введите Ваш Email"
+                        className='register__input'
+                        placeholder="Введите почту"
                         minLength="2"
-                        maxLength="40"
-                        required
+                        maxLength="60"
                         value={email}
-                        onChange={handleEmail}
+                        disabled={isLoading}
+                        {...register('email', {
+                          required: 'Введите Ваш Email ',
+                          minLength: {
+                            value: 5,
+                            message: 'Минимальное количество символов: 5'
+                          },
+                          maxLength: {
+                            value: 40,
+                            message: 'Максимальное количество символов: 40'
+                          },
+                          pattern: {
+                            value: /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/,
+                            message: 'Введите корректный e-mail'
+                          },
+                        })} 
                     />
-                    {emailError && <div className='register__form-error_active'>Что-то пошло не так...</div>}
+                    <div className={`register__form-error ${errors?.email ? 'register__form-error_active' : ''}`}>{errors?.email?.message || 'Что-то пошло не так' }</div>
                     <p className='register__text'>Пароль</p>
                     <input
                         id="password-input"
                         type="password"
-                        className={`register__input ${passwordError ? 'register__input_error' : ''}`}
+                        className='register__input'                        
                         placeholder="Введите Ваш пароль"
                         minLength="6"
                         maxLength="40"
-                        required
                         value={password}
-                        onChange={handlePassword}
+                        disabled={isLoading}
+                        {...register('password', {
+                          required: 'Имя пользователя должно быть обязательно заполнено',
+                          minLength: {
+                            value: 6,
+                            message: 'Минимальное количество символов: 6'
+                          },
+                          maxLength: {
+                            value: 40,
+                            message: 'Максимальное количество символов: 40'
+                          }
+                        })} 
                     />
-                    {passwordError && <div className='register__form-error_active'>Что-то пошло не так...</div>}
-                    <button className="register__button" type='submit'>Зарегистрироваться</button>
+                    <div className={`register__form-error ${errors?.password ? 'register__form-error_active' : ''}`}>{errors?.password?.message || "Что-то пошло не так"}</div>
+                    <div className='register__submit-error'>{errorMessage}</div> 
+                    <button className='register__button' disabled={!isValid || isLoading}>Зарегистрироваться</button>
                     <Link to="/signin" className="register__question">Уже зарегистрированы? <span className="register__link">Войти</span></Link>
                 </form>
             </section>

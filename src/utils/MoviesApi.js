@@ -3,6 +3,7 @@ export const BASE_URL = 'https://api.nomoreparties.co/beatfilm-movies';
 export default class Api {
     constructor(options) {
         this.baseUrl = options.baseUrl;
+        this._headers = options.headers;
     }
 
     _checkResponse(res) {
