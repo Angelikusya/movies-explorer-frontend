@@ -49,14 +49,12 @@ function Profile({ editUser, logout, noticeProfile, isLoading }) {
 
         editUser({name, email});
         setIsEdited(false);
-
     }
 
     return (
         <main>
             <section className='profile'>
                 <h1 className='profile__greeting'>Привет, {currentUser.name}!</h1>
-
                 <form className='profile__form' onSubmit={handleEditUser} noValidate >
                     <div className='profile__form-flex'>
                         <p className='profile__text'>Имя</p>

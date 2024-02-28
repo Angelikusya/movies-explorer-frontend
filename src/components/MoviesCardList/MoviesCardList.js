@@ -29,7 +29,7 @@ function MoviesCardList ({ cards, saveMovie, notFound, deleteMovie, isLoading}) 
     }, 1000);
   }, []);
 
-  //изменение списка в зависимости от размера экрана
+  //изменение количества карточек в зависимости от размера экрана
   useEffect(() => {
     const resizeWindow = () => {
       setWindowWidth(window.innerWidth);

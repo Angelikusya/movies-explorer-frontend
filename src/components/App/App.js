@@ -115,11 +115,11 @@ function App() {
   // получение сохраненных фильмов
   const getSavedMovies = () => {
     auth
-    .getSavedMovies()
-    .then((data) => {
-      localStorage.setItem('savedMovies', JSON.stringify(data));
-      setSavedMovie(JSON.parse(localStorage.getItem('savedMovies')));
-    })
+      .getSavedMovies()
+      .then((data) => {
+        localStorage.setItem('savedMovies', JSON.stringify(data));
+        setSavedMovie(JSON.parse(localStorage.getItem('savedMovies')));
+      })
     .catch((err) => console.log(err));
   };
 
@@ -205,7 +205,6 @@ function App() {
       } 
     }
   }, [activeCheckbox, activeCheckboxSavedMovies, pathname, searchSavedMovies, shortMovies, showSavedMovies]);
-
 
   // поиск по базе фильмов
   const handleSearchMovies = (searchMovie) => {

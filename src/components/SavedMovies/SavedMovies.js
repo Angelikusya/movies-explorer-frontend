@@ -2,15 +2,15 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 
 function SavedMovies ({
-    onSubmit, 
-    movies, 
-    isLoading, 
-    activeCheckbox, 
-    handleCheckbox, 
-    handleSearcSavedMovies, 
-    notFound, 
-    deleteMovie
-  }) {
+  onSubmit, 
+  movies, 
+  isLoading, 
+  activeCheckbox, 
+  handleCheckbox, 
+  handleSearcSavedMovies, 
+  notFound, 
+  deleteMovie
+}) {
 
   return (
     <main>
