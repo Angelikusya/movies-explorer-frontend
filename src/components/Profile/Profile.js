@@ -3,7 +3,7 @@ import './Profile.css';
 import { Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 
-function Profile({ editUser, logout, noticeProfile, isLoading }) {
+function Profile({ editUser, noticeProfile, logout, isLoading }) {
 
     const currentUser = React.useContext(CurrentUserContext);    // Подписка на контекст
     const [name, setName] = useState('');
@@ -12,11 +12,6 @@ function Profile({ editUser, logout, noticeProfile, isLoading }) {
     const [emailError, setEmailError] = useState(false);
     const [isEdited, setIsEdited] = useState(false);
     const [isDisabled, setIsDisabled] = useState(true);
-
-    React.useEffect(() => {
-        setName(currentUser.name);
-        setEmail(currentUser.email);
-    }, [currentUser]);
 
     function handleName(e) {
         const newName = e.target.value;
@@ -50,6 +45,11 @@ function Profile({ editUser, logout, noticeProfile, isLoading }) {
         editUser({name, email});
         setIsEdited(false);
     }
+    
+    React.useEffect(() => {
+        setName(currentUser.name);
+        setEmail(currentUser.email);
+    }, [currentUser]);
 
     return (
         <main>

@@ -37,6 +37,13 @@ function App() {
   const [noticeProfile, setNoticeProfile] = useState('');
   const [errorMessageRegister, setErrorMessageRegister] = useState('');
   const [errorMessageLogin, setErrorMessageLogin] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    setName(currentUser.name);
+    setEmail(currentUser.email);
+}, [currentUser]);
 
   // регистрация
   const handleRegister = (name, email, password) => {

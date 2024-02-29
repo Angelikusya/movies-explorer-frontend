@@ -10,7 +10,6 @@ function SearchForm ({ activeCheckbox, handleCheckbox, handleSearchMovie, handle
 
   const [movieSearch, setMovieSearch] = useState('');
 
-
   let condition;
   if (activeCheckbox === true) {
     condition = true
