@@ -238,10 +238,6 @@
         opacity: 0.7;
     }
     
-    .register__form-error {
-        display: none;
-    }
-    
     .register__form-error_active {
         display: block;
         margin: 0;
