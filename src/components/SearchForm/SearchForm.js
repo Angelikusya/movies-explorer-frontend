@@ -29,8 +29,9 @@ function SearchForm ({ activeCheckbox, handleCheckbox, handleSearchMovie, handle
   const { 
     register, 
     handleSubmit, 
+    formState: { errors }, 
     watch,
-  } = useForm({ mode: 'onSubmit' });
+  } = useForm({ mode: 'onSubmit'});
 
   // очистка инпута
   useEffect(() => {
@@ -79,6 +80,7 @@ function SearchForm ({ activeCheckbox, handleCheckbox, handleSearchMovie, handle
                       }
                     })} value={movieSearch}
                   />
+                  <span className={`search-form__error ${errors?.movie ? 'search-form__error_active' : ''}`}>{errors?.movie?.message || ''}</span>
                   <button className='search-form__button' type='submit'>Найти
                   </button>
             </div>

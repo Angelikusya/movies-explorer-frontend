@@ -13,7 +13,7 @@ import {
   DESKTOP_MORE_MOVIES,
   TABLET_MORE_MOVIES,
   MOBILE_MORE_MOVIES,
-} from '../../constants/constants';
+} from '../../config/config';
 
 function MoviesCardList ({ cards, saveMovie, notFound, deleteMovie, isLoading}) {
 

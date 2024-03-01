@@ -13,6 +13,12 @@ function Profile({ editUser, noticeProfile, logout, isLoading }) {
     const [isEdited, setIsEdited] = useState(false);
     const [isDisabled, setIsDisabled] = useState(true);
 
+    React.useEffect(() => {
+        setName(currentUser.name);
+        setEmail(currentUser.email);
+    }, [currentUser]);
+
+    
     function handleName(e) {
         const newName = e.target.value;
         setName(newName);
@@ -45,11 +51,6 @@ function Profile({ editUser, noticeProfile, logout, isLoading }) {
         editUser({name, email});
         setIsEdited(false);
     }
-    
-    React.useEffect(() => {
-        setName(currentUser.name);
-        setEmail(currentUser.email);
-    }, [currentUser]);
 
     return (
         <main>

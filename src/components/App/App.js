@@ -15,7 +15,7 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import * as auth from '../../utils/MainApi';
 import { moviesApi}  from '../../utils/MoviesApi';
-import { SHORT_MOVIE } from '../../constants/constants'
+import { SHORT_MOVIE } from '../../config/config'
 
 function App() {
 
@@ -37,13 +37,7 @@ function App() {
   const [noticeProfile, setNoticeProfile] = useState('');
   const [errorMessageRegister, setErrorMessageRegister] = useState('');
   const [errorMessageLogin, setErrorMessageLogin] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
 
-  useEffect(() => {
-    setName(currentUser.name);
-    setEmail(currentUser.email);
-}, [currentUser]);
 
   // регистрация
   const handleRegister = (name, email, password) => {
@@ -54,6 +48,7 @@ function App() {
         handleLogin(email, password);
         navigate('/movies', {replace: true});
         getSavedMovies();
+        setCurrentUser({ name, email }); 
       })
       .catch((err) => {
         console.error(err);

@@ -162,6 +162,20 @@
     transition: .3s ease;
 }
 
+.search-form__error {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: normal;
+    color: #2F2F2F;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.search-form__error_active {
+    color: #EE3465;
+}
+
 @media screen and (max-width: 1279px) {
     .search-form {
         padding: 74px 30px 10px;

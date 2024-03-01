@@ -103,4 +103,8 @@
         max-width: 226px;
         padding-top: 3px;
     }
+    
+    .movies-card__delete {
+        opacity: 1;
+    }
 }
