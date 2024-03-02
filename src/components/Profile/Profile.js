@@ -5,7 +5,7 @@ import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Profile({ editUser, noticeProfile, logout, isLoading }) {
 
-    const currentUser = React.useContext(CurrentUserContext);    // Подписка на контекст
+    const currentUser = React.useContext(CurrentUserContext); 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [nameError, setNameError] = useState(false);
@@ -45,11 +45,14 @@ function Profile({ editUser, noticeProfile, logout, isLoading }) {
         }
     }
 
+
     function handleEditUser(e) {
         e.preventDefault();
 
-        editUser({name, email});
-        setIsEdited(false);
+        if (!nameError && !emailError) {
+            editUser({ name, email });
+            setIsEdited(false);
+        }
     }
 
     return (
@@ -89,7 +92,7 @@ function Profile({ editUser, noticeProfile, logout, isLoading }) {
                         <span className='profile__form-error'>{noticeProfile}</span>
                     </p>
                     {isEdited ? ( 
-                        <button className={`profile__button ${isDisabled || isLoading ? 'profile__button profile__button_disabled' : ''}`} type='submit'>Сохранить</button> ) : ( <button className="profile__change" type='submit'>Редактировать</button>)}
+                        <button className={`profile__button ${isDisabled || isLoading ? 'profile__button profile__button_disabled' : ''}`} type='submit'>Сохранить</button> ) : ( <div className="profile__change" type='submit'>Редактировать</div>)}
                     {isEdited ? (
                     <Link className="profile__exit_disabled" to='/'>Выйти из аккаунта</Link> ) : (
                     <Link className="profile__exit" to='/' onClick={logout}>Выйти из аккаунта</Link> )}
