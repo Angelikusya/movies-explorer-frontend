@@ -60,10 +60,13 @@
     color: #FFFFFF;
     background: transparent;
     border: 0;
+    cursor: pointer;
+    opacity: 1;
 }
 
-.profile__change_disabled {
-    color: #F2E9E9;
+.profile__change:disabled {
+    opacity: 0.2;
+    cursor: none;
 }
   
 .profile__input {

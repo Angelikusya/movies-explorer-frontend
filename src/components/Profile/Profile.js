@@ -1,59 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './Profile.css';
 import { Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Profile({ editUser, noticeProfile, logout, isLoading }) {
+    const currentUser = useContext(CurrentUserContext);
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [edit, setEdit] = useState(false);
+    const [formValid, setFormValid] = useState(false);
+  
+    const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
+  
+    const isNameValid = ({name}) => {
+        return Boolean(typeof name === 'string' && name.length >= 2);
+    };
 
-    const currentUser = React.useContext(CurrentUserContext); 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [nameError, setNameError] = useState(false);
-    const [emailError, setEmailError] = useState(false);
-    const [isEdited, setIsEdited] = useState(false);
-    const [isDisabled, setIsDisabled] = useState(true);
-
-    React.useEffect(() => {
-        setName(currentUser.name);
-        setEmail(currentUser.email);
+    const isEmailValid = ({email}) => {
+        return Boolean(emailRegex.test(email));
+      };
+  
+    const validateForm = ({name, email}) => {
+        const emailValidation = isEmailValid({email});
+        const nameValidation = isNameValid({name})
+        return Boolean(emailValidation && nameValidation);
+    };
+  
+    useEffect(() => {
+      const isFormValid = Boolean(validateForm({name, email}));
+      setFormValid(isFormValid);
+    }, [name, email]);
+  
+    const disabled = validateForm({name, email}) && (name !== currentUser.name || email !== currentUser.email);
+  
+    const changeName = (e) => {
+      setName(e.target.value);
+    };
+  
+    const changeEmail = (e) => {
+      setEmail(e.target.value);
+    };
+  
+    const handleEdit = () => {
+      setEdit(true);
+    };
+  
+    const handleEditUser = (e) => {
+      e.preventDefault();
+      editUser({name, email});
+      setEdit(false);
+    };
+  
+    const handleExit = () => {
+      logout();
+    };
+  
+    useEffect(() => {
+      setName(currentUser.name);
+      setEmail(currentUser.email);
     }, [currentUser]);
-
-    
-    function handleName(e) {
-        const newName = e.target.value;
-        setName(newName);
-        setIsEdited(true);
-        if (newName === currentUser.name || newName.length < 2 || newName.length > 40) {
-            setNameError(true);
-            setIsDisabled(true);
-        } else {
-            setNameError(false);
-            setIsDisabled(emailError);
-        }
-    }
-    
-    function handleEmail(e) {
-        const newEmail = e.target.value;
-        setEmail(newEmail);
-        setIsEdited(true);
-        if (newEmail === currentUser.email || !/^\S+@\S+\.\S+$/.test(newEmail)) {
-            setEmailError(true);
-            setIsDisabled(true);
-        } else {
-            setEmailError(false);
-            setIsDisabled(nameError);
-        }
-    }
-
-
-    function handleEditUser(e) {
-        e.preventDefault();
-
-        if (!nameError && !emailError) {
-            editUser({ name, email });
-            setIsEdited(false);
-        }
-    }
 
     return (
         <main>
@@ -71,7 +76,7 @@ function Profile({ editUser, noticeProfile, logout, isLoading }) {
                             maxLength="40"
                             required
                             value={name || ''}
-                            onChange={handleName}
+                            onChange={changeName} 
                         />
                     </div>
                     <div className='profile__form-flex'>
@@ -85,17 +90,20 @@ function Profile({ editUser, noticeProfile, logout, isLoading }) {
                             maxLength="40"
                             required
                             value={email || ''}
-                            onChange={handleEmail}
+                            onChange={changeEmail}
                         />
                     </div>
                     <p className='profile__form-error-contaiter'>
                         <span className='profile__form-error'>{noticeProfile}</span>
                     </p>
-                    {isEdited ? ( 
-                        <button className={`profile__button ${isDisabled || isLoading ? 'profile__button profile__button_disabled' : ''}`} type='submit'>Сохранить</button> ) : ( <div className="profile__change" type='submit'>Редактировать</div>)}
+                    <button className='profile__change' onClick={handleEdit} disabled={!disabled || isLoading}>Редактировать</button>
+                    <Link className="profile__exit" to='/' onClick={handleExit}>Выйти из аккаунта</Link>
+
+                    {/* {isEdited ? ( 
+                        <button className={`profile__button ${isDisabled || isLoading ? 'profile__button profile__button_disabled' : ''}`} type='submit'>Сохранить</button> ) : ( <div className="profile__change" onClick={() => setIsEdited(true)}>Редактировать</div>)}
                     {isEdited ? (
                     <Link className="profile__exit_disabled" to='/'>Выйти из аккаунта</Link> ) : (
-                    <Link className="profile__exit" to='/' onClick={logout}>Выйти из аккаунта</Link> )}
+                    <Link className="profile__exit" to='/' onClick={logout}>Выйти из аккаунта</Link> )} */}
                 </form>
             </section>
         </main>
