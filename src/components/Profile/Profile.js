@@ -5,11 +5,17 @@ import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Profile({ editUser, noticeProfile, logout, isLoading }) {
     const currentUser = useContext(CurrentUserContext);
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
+    const [name, setName] = useState(currentUser.name);
+    const [email, setEmail] = useState(currentUser.email);
     const [edit, setEdit] = useState(false);
     const [formValid, setFormValid] = useState(false);
   
+
+    useEffect(() => {
+      setName(currentUser.name);
+      setEmail(currentUser.email);
+    }, [currentUser]);
+    
     const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
   
     const isNameValid = ({name}) => {
@@ -54,11 +60,6 @@ function Profile({ editUser, noticeProfile, logout, isLoading }) {
     const handleExit = () => {
       logout();
     };
-  
-    useEffect(() => {
-      setName(currentUser.name);
-      setEmail(currentUser.email);
-    }, [currentUser]);
 
     return (
         <main>

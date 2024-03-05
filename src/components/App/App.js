@@ -126,23 +126,21 @@ function App() {
   };
 
     // проверка токена
+    const tokenFromLocalStorage = localStorage.getItem('token');
+    
     useEffect(() => {
-      const jwt = localStorage.getItem('token');
-      if (jwt) { handleTokenCheck(jwt) }
-    }, [])
-      
-    const handleTokenCheck = (jwt) => {
-      auth
-        .checkToken(jwt)
-        .then((res) => {
-          if (res) {
+      if (tokenFromLocalStorage) {
+        auth
+          .checkToken(tokenFromLocalStorage)
+          .then((res) => {
             setLogedIn(true);
             setCurrentUser(res);
             getUser();
-          }
-        })
-        .catch((err) => console.error(`Ошибка: ${err}`))
-    }
+          })
+          .catch((err) => console.log(err))
+      };
+    }, [tokenFromLocalStorage]);
+    
 
   // выход из аккаунта 
   const logout = () => {
