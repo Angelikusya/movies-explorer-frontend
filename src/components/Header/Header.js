@@ -6,9 +6,10 @@ import './Header.css';
 function Header({email, onExit}) {
 
   const { pathname } = useLocation();
+  const activatedHeader = (pathname === '/profile' || pathname === '/movies' || pathname === '/saved-movies');
 
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false);
-
+  
   const handleBurgerMenuOpen = () => {
     setIsBurgerMenuOpened(true);
   };
@@ -20,11 +21,12 @@ function Header({email, onExit}) {
   const handleLinkClick = () => {
     handleBurgerMenuClose();
   }
+
     return (
       <>
-      {/* будет прописана логика, если не залогинен пользователь */}
-      {( pathname === '/') && (
-      <header className={pathname === '/' ? 'header' : 'header header-signin'}>
+      {/* если пользователь не залогинен */}
+      {(!localStorage.getItem('token') && pathname === '/') && (
+      <header className='header header-signin'>
         <div className='header__content'>
           <Link className='header__logo' to='/'></Link>
           <nav className='header__navigation'>
@@ -34,8 +36,9 @@ function Header({email, onExit}) {
         </div>
       </header> )}
 
-      {( pathname === '/' || pathname === '/saved-movies' || pathname === '/movies' || pathname === '/profile') && (
-      <header className={pathname === '/' ? 'header' : 'header-logged'}>
+        {/* если пользователь залогинен для меню */}
+      {(localStorage.getItem('token') && (activatedHeader || pathname === '/') ) && (
+      <header className={pathname === '/' ? 'header' : 'header header-logged'}>
         <div className='header__content-logged'>
           <Link className='header__logo' to='/'></Link>
           <button className='burger-menu__open' onClick={handleBurgerMenuOpen} type='button'></button>
