@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/movies-explorer-frontend/static/css/main.0a2a7d1a.css",
+    "main.js": "/movies-explorer-frontend/static/js/main.8bd4d58f.js",
+    "static/js/453.7a025395.chunk.js": "/movies-explorer-frontend/static/js/453.7a025395.chunk.js",
+    "static/media/me.JPEG": "/movies-explorer-frontend/static/media/me.f27bf8cefce16d2d2a0c.JPEG",
+    "static/media/Inter-Medium.woff": "/movies-explorer-frontend/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Regular.woff": "/movies-explorer-frontend/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2": "/movies-explorer-frontend/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Regular.woff2": "/movies-explorer-frontend/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/promo.svg": "/movies-explorer-frontend/static/media/promo.aca873625017036ab706.svg",
+    "static/media/logo.svg": "/movies-explorer-frontend/static/media/logo.be2d72c0ff28d062fd41.svg",
+    "index.html": "/movies-explorer-frontend/index.html",
+    "static/media/search.svg": "/movies-explorer-frontend/static/media/search.1f9d48237e00ca6339ea8ee8f160c739.svg",
+    "static/media/profile_icon.svg": "/movies-explorer-frontend/static/media/profile_icon.543c7ed19e57c9a47a3f.svg",
+    "static/media/trash.svg": "/movies-explorer-frontend/static/media/trash.de8ce0ecbfeb5095779f.svg",
+    "static/media/burger-menu-mini.svg": "/movies-explorer-frontend/static/media/burger-menu-mini.8fbff9fbf489fb701798.svg",
+    "static/media/like_active.svg": "/movies-explorer-frontend/static/media/like_active.bd192f4a9ac7eb4b3b82.svg",
+    "static/media/like_disabled.svg": "/movies-explorer-frontend/static/media/like_disabled.2532ba1428f56de1eb6f.svg",
+    "static/media/burger-menu-big.svg": "/movies-explorer-frontend/static/media/burger-menu-big.111cfc3a3545a9ff785c.svg",
+    "static/media/delete.svg": "/movies-explorer-frontend/static/media/delete.d29fe99e15dcb5bff2b9.svg",
+    "main.0a2a7d1a.css.map": "/movies-explorer-frontend/static/css/main.0a2a7d1a.css.map",
+    "main.8bd4d58f.js.map": "/movies-explorer-frontend/static/js/main.8bd4d58f.js.map",
+    "453.7a025395.chunk.js.map": "/movies-explorer-frontend/static/js/453.7a025395.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a2a7d1a.css",
+    "static/js/main.8bd4d58f.js"
+  ]
+}
