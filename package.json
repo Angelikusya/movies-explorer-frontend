@@ -1,6 +1,7 @@
 {
   "name": "movies-explorer-frontend",
   "version": "0.1.0",
+  "homepage": "https://angelikusya.github.io/movies-explorer-frontend/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -20,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && scp -r ./build/* anzhelika@51.250.77.109:/home/anzhelika/frontend"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
