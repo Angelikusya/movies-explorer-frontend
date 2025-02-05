@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && scp -r ./build/* anzhelika@51.250.77.109:/home/anzhelika/frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -42,7 +42,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "gh-pages": "^6.3.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
